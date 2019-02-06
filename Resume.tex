@@ -22,7 +22,7 @@
 
 \documentclass{resume} % Use the custom resume.cls style
 
-\usepackage[left=0.50in,top=0.4in,right=0.50in,bottom=0.6in]{geometry} % Document margins
+\usepackage[left=0.50in,top=0.4in,right=0.50in,bottom=0.4in]{geometry} % Document margins
 \usepackage{hyperref}
 
 \hypersetup{
@@ -30,7 +30,7 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={Sharelatex Example},
+    pdftitle={Resume - Soham Dongargaonkar},
     bookmarks=true,
     pdfpagemode=FullScreen,
     }
@@ -42,13 +42,14 @@
 
 \begin{rSection}{Career Objective}
  Seeking a Software Development Internship. Available from May 2019.\\ 
- Interests: Web and App Development, Distributed Systems.
+ Interests: Web and App Development, Distributed Systems and Computer Networks.
 \end{rSection}
 
 \begin{rSection}{Education}
 
 {\bf Rochester Institute of Technology, Rochester, NY, USA} \hfill {\em Expected - December 2020} 
 \\ Masters of Science in Computer Science [Current GPA: 3.67]\\
+Advanced OOP, Data Structures, Algorithms, Distributed Systems, Computer Networks\\
 \\{\bf Manipal Institute of Technology, Manipal, India             } \hfill {\em Earned - August 2018} 
 \\ Bachelor of Technology in Information Technology
 \end{rSection}
@@ -73,17 +74,14 @@ Other &  Git, PostgreSQL, REST API, ActiveRecord, Sidekiq, Android, JSON, SCSS, 
 \begin{rSection}{Work Experience}
 
     \begin{rSubsection}{Avalon Labs, Bangalore, India}{\em Dec 2017- July 2018}{Full Stack Intern}{}
-    Developed and deployed LinkHero (\url{https://uselinkhero.com}), a marketing tool that enables users to track link clicks, earn affiliate revenue and promote their businesses.
+    Developed LinkHero in Ruby on Rails (\href{http://lnkh.co/c3wCMZK}{lnkh.co/c3wCMZK})
     \item
-    Programmed a link shortening system for link click tracking (Referrer Domain, IP Address, Geo-Location, etc.)
+    Programmed a link shortening system for link click tracking.
     \item 
-    Designed a functionality to display custom "Call to Action" popups on a foreign URL by using iFrames.
-    \item 
-    Used Paypal API for payments, and later changed it to Stripe API, ensuring no data was lost through extensive testing.
-    \item 
-    Engineered an ability to refer LinkHero to a friend to earn direct money on the plan bought. 
+    Gracefully transitioned from Paypal to Stripe API through extensive testing.
     \item
-    Deployed a Chrome Extension by adding custom REST-ful routes to allow quick link creation.\\
+    Deployed a Chrome Extension by adding custom REST-ful routes to allow quick link creation.
+    \item Engineered a referral system to earn money, using Sidekiq and cron to send out automated emails. \\
     Collaborated on Enkidu in a team of 4 and developed 2 other web apps.
     \end{rSubsection}
     
@@ -94,7 +92,7 @@ Other &  Git, PostgreSQL, REST API, ActiveRecord, Sidekiq, Android, JSON, SCSS, 
     
     \begin{rSubsection}{Parikshit, Manipal, India}{\em Sept 2016 - Dec 2016}{Student Developer}{}
     \item Collaborated in a team of two to develop the official website for the student satellite program of Manipal University.
-    \item Used git for version control and Bootstrap to design a mobile responsive, light weight website. 
+    \item Used git for version control and Bootstrap with jQuery to design a mobile responsive, light weight website. 
     \end{rSubsection}
 \end{rSection}
 
@@ -103,19 +101,19 @@ Other &  Git, PostgreSQL, REST API, ActiveRecord, Sidekiq, Android, JSON, SCSS, 
 %-----------------------------------------------------------------------------------------------
 \begin{rSection}{Projects}
 \begin{rSubsection}{Remembrall}{\em Feb 2017 - April 2017}{Android App}{}
-  \item Created an Android App that helps you take notes and add reminders to keep yourself notified.
-  \item Facilitated a quick, one touch account signup and login using Google+ SignIn API.
-  \item Exploited Android APIs in Nougat (FirebaseJobDispatcher) in order to schedule notifications.
+  \item Implemented CardView in RecyclerView for displaying notes and reminders according to Material Design.
+  \item Exploited Android APIs in Nougat (FirebaseJobDispatcher) in order to schedule reminders.
+  \item Integrated Google+ SignIn API for login/signup.
  \end{rSubsection}
  
 \begin{rSubsection}{Beats}{\em Oct 2016 - Dec 2016}{Online Music Player}{}
   \item Implemented circular queues to enable features like play, pause, shuffle and repeat.
-  \item Used HTML5 audio to play music with PHP for backend.
+  \item Used HTML5 audio to play music and jQuery to load the circular queue from songs on the current page.
   \item Developed a functionality that recommends songs based on frequency of listening to them.
 \end{rSubsection}
 \begin{rSubsection}{Mechatron}{\em Sept 2016 - Oct 2016}{Online Quiz Game}{}
-  \item Developed an online quiz system for TechTatva’16, MIT’s national technical fest.
-  \item Designed the front-end and the back-end using JQuery and PHP. 
+  \item Collaborated in a team of 3 to develop an online event for MIT's national technical fest.
+  \item Used SQLite for storing quizzes and scores and JS to calculate them.
   \item Researched about common web attacks and devised mechanisms to protect the application against them.
 \end{rSubsection}
 \end{rSection}
