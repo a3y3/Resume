@@ -61,11 +61,7 @@ Advanced Object Oriented Programming, Data Structures, Algorithms, Distributed S
 
 \begin{rSection}{SKILLS}
 
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{0ex}} l }
-Languages \ & Java, Ruby on Rails, Go, Python, PHP, JavaScript, jQuery, HTML, CSS
- \\
-Other &  git, PostgreSQL, REST API, ActiveRecord, Sidekiq, Android, JSON, SCSS, Bootstrap  \\
-\end{tabular}
+\input{Skills/skills.tex}
 
 \end{rSection}
 
@@ -76,47 +72,22 @@ Other &  git, PostgreSQL, REST API, ActiveRecord, Sidekiq, Android, JSON, SCSS, 
 
 \begin{rSection}{Work Experience}
 
-    \begin{rSubsection}{Full Stack Intern}{\em Dec 2017- July 2018}{Avalon Labs}{Bangalore, India}
-    Independently developed LinkHero: \href{http://lnkh.co/c3wCMZK}{lnkh.co/c3wCMZK} $\vert$ Ruby on Rails $\vert$ 1600 users so far
-    \item
-    Programmed a link shortening system for link click tracking.
-    \item 
-    Transitioned from Paypal to Stripe API through extensive testing.
-    \item
-    Deployed a Chrome Extension by adding custom REST-ful routes to allow quick link creation.
-    \item Engineered a referral system to earn money, using Sidekiq and cron to send out automated background emails.
-    \end{rSubsection}
+    \input{Work/avalon.tex}
     
-    \begin{rSubsection}{Android UI Developer Intern}{\em June 2017- July 2017}{Clapoof Technologies}{ Manipal, India}
-    \item Designed and developed the UI/UX for the app using Material Design Guidelines in collaboration with a team of 3.
-    \item Researched about usability testing and accessibility.
-    \end{rSubsection}
+    \input{Work/clapoof.tex}
     
-    \begin{rSubsection}{Student Developer}{\em Sept 2016 - Dec 2016}{Parikshit}{Manipal, India}
-    \item Collaborated in a team of two to develop the official website for the student satellite program of Manipal University.
-    \item Used git for version control and Bootstrap with jQuery to design a mobile responsive, light weight website. 
-    \end{rSubsection}
+    \input{Work/parikshit.tex}
 \end{rSection}
 
 %--------------------------------------------------------------------------------
 %    Projects And Seminars
 %-----------------------------------------------------------------------------------------------
 \begin{rSection}{Projects}
-\begin{rSubsection}{Remembrall}{\em Feb 2017 - April 2017}{Android App}{}
-  \item Implemented CardView in RecyclerView for displaying notes and reminders according to Material Design.
-  \item Exploited Android APIs in Nougat (FirebaseJobDispatcher) in order to schedule reminders.
-  \item Integrated Google+ SignIn API for login/signup.
- \end{rSubsection}
- \vspace{-2.15pt}
-\begin{rSubsection}{Beats}{\em Oct 2016 - Dec 2016}{Online Music Player}{}
-  \item Implemented circular queues to enable features like play, pause, shuffle and repeat.
-  \item Used HTML5 audio to play music and jQuery to load the circular queue from songs on the current page.
-  \item Developed a functionality that recommends songs based on frequency of listening to them.
-\end{rSubsection}
-\begin{rSubsection}{Mechatron}{\em Sept 2016 - Oct 2016}{Online Quiz Game}{}
-  \item Collaborated in a team of 3 to develop an online event for MIT's national technical fest.
-  \item Used SQLite for storing quizzes and scores and JavaScript to calculate them.
-  \item Researched about common web attacks and devised mechanisms to protect the application against them.
-\end{rSubsection}
+    \input{Projects/remembrall.tex}
+    \vspace{-2.15pt}
+
+    \input{Projects/beats.tex}
+
+    \input{Projects/mechatron.tex}
 \end{rSection}
 \end{document}
