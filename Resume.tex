@@ -22,7 +22,7 @@
 
 \documentclass{resume} % Use the custom resume.cls style
 
-\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\usepackage[left=0.5in,top=0.6in,right=0.5in,bottom=0.6in]{geometry} % Document margins
 \usepackage{hyperref}
 
 \hypersetup{
@@ -31,63 +31,52 @@
     filecolor=magenta,      
     urlcolor=cyan,
     pdftitle={Resume - Soham Dongargaonkar},
-    bookmarks=true,
     pdfpagemode=FullScreen,
     }
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-\name{Soham Dongargaonkar} % Your name
-\address{sd4324@rit.edu \\ (585) 967-0514 \\  https://github.com/a3y3} % Your phone number and email
+\name{Soham Dongargaonkar}
+
+\address{
+% \href{https://a3y3.dev}{a3y3.dev} \\ 
+\href{mailto:sd4324@rit.edu}{sd4324@rit.edu} \\ 
+(585) 967-0514 \\  
+\href{https://github.com/a3y3}{github.com/a3y3}}
+
 \begin{document}
-\begin{rSection}{Career Objective}
- Seeking a Software Development Internship. Available from May 2019 for a Summer or Fall Co-Op.\\
- Interests: Web and App Development, Software Engineering, Distributed Systems and Computer Networks.
-\end{rSection}
+    \begin{rSection}{Career Objective}
+     Seeking a Software Development Internship. Available from May 2019 for a Summer or Fall Co-Op.
+    \end{rSection}
 
-\begin{rSection}{Education}
-
-{\bf Rochester Institute of Technology, Rochester, NY, USA} \hfill {\em Expected - December 2020} 
-\\ Master of Science in Computer Science 
-\hfill {\em Current GPA: 3.67} \\
-Advanced Object Oriented Programming, Data Structures, Algorithms, Distributed Systems, Computer Networks
-
-{\bf Manipal Institute of Technology, Manipal, India             } 
-\hfill {\em Earned - August 2018} 
-\\ Bachelor of Technology in Information Technology
-\hfill {\em GPA: 7.68/10}
-\end{rSection}
-
-
-
-\begin{rSection}{SKILLS}
-
-\input{Skills/skills.tex}
-
-\end{rSection}
-
-
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE SECTION
-%----------------------------------------------------------------------------------------
-
-\begin{rSection}{Work Experience}
-
-    \input{Work/avalon.tex}
+    \begin{rSection}{Education}
     
-    \input{Work/clapoof.tex}
-    
-    \input{Work/parikshit.tex}
-\end{rSection}
+        {\bf Rochester Institute of Technology, Rochester, NY, USA} \hfill {\em Expected - December 2020} 
+        \\ Master of Science in Computer Science 
+        \hfill {\em GPA: 3.78/4} \\
+        Advanced Object Oriented Programming, Data Structures, Algorithms, Distributed Systems, Computer Networks
+        
+        {\bf Manipal Institute of Technology, Manipal, India} 
+        \hfill {\em Earned - August 2018} 
+        \\ B.Tech in Information Technology
+    \end{rSection}
 
-%--------------------------------------------------------------------------------
-%    Projects And Seminars
-%-----------------------------------------------------------------------------------------------
-\begin{rSection}{Projects}
-    \input{Projects/remembrall.tex}
-    \vspace{-2.15pt}
 
-    \input{Projects/beats.tex}
 
-    \input{Projects/mechatron.tex}
-\end{rSection}
+    \begin{rSection}{SKILLS}
+        \input{Skills/skills.tex}
+    \end{rSection}
+
+
+    \begin{rSection}{Work Experience}
+        \input{Work/avalon.tex}
+        \input{Work/clapoof.tex}
+        \input{Work/parikshit.tex}
+    \end{rSection}
+
+
+    \begin{rSection}{Projects}
+        \input{Projects/ripcom.tex}
+        \input{Projects/remembrall.tex}
+        \input{Projects/beats.tex}
+    \end{rSection}
 \end{document}
