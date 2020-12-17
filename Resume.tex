@@ -1,77 +1,66 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Medium Length Professional CV
-% LaTeX Template
-% Version 2.0 (8/5/13)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Rishi Shah 
-%
-% Important note:
-% This template requires the resume.cls file to be in the same directory as the
-% .tex file. The resume.cls file provides the resume style used for structuring the
-% document.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The MIT License (MIT)
+%%
+%% Copyright (c) 2015 Daniil Belyakov
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a copy
+%% of this software and associated documentation files (the "Software"), to deal
+%% in the Software without restriction, including without limitation the rights
+%% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%% copies of the Software, and to permit persons to whom the Software is
+%% furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included in all
+%% copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+%% SOFTWARE.
 
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
-\documentclass{resume} % Use the custom resume.cls style
-
-\usepackage[left=0.5in,top=0.6in,right=0.5in,bottom=0.6in]{geometry} % Document margins
+% The font could be set to Windows-specific Calibri by using the 'calibri' option
+\documentclass[calibri]{resume}
+% For mathematical symbols
+\usepackage{amsmath}
 \usepackage{hyperref}
-
 \hypersetup{
     colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdftitle={Resume - Soham Dongargaonkar}
-    }
-\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
-\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-\name{Soham Dongargaonkar}
+    urlcolor=blue
+}
 
-\address{
-% \href{https://a3y3.dev}{a3y3.dev} \\ 
-\href{mailto:sd4324@rit.edu}{sd4324@rit.edu} \\ 
-(585) 967-0514 \\  
-\href{https://github.com/a3y3}{github.com/a3y3}}
+\name{Soham Dongargaonkar}
+\address{220 John St, Apt 8106 \linebreak Rochester NY 14623 \linebreak \href{https://a3y3.dev}{https://a3y3.dev}}
+\contacts{(585) 967-0514 \linebreak \href{mailto:sohamssd@gmail.com}{sohamssd@gmail.com} \linebreak \href{https://github.com/a3y3}{https://github.com/a3y3}}
 
 \begin{document}
-    \begin{rSection}{Career Objective}
-     Seeking a Software Development Internship. Available from August 2019 for internships or Co-ops.
-    \end{rSection}
 
-    \begin{rSection}{Education}
-    
-        {\bf Rochester Institute of Technology, Rochester, NY, USA} \hfill {\em Expected - December 2020} 
-        \\ Master of Science in Computer Science 
-        \hfill {\em GPA: 3.78/4} \\
-        Advanced Object Oriented Programming, Data Structures, Algorithms, Computer Networks
-        
-        {\bf Manipal Institute of Technology, Manipal, India} 
-        \hfill {\em Earned - August 2018} 
-        \\ B.Tech in Information Technology
-    \end{rSection}
+	% Print the header
+	\makeheader
+	
+	
+	\begin{cvsection}{Education}
+		\input{education/rit}
+		\input{education/fullstacknd}
+		\input{education/manipal}
+	\end{cvsection}
+	
+	
+	\begin{cvsection}{Employment}
+		\input{work/motorola-solutions}
+		\input{work/avalon}
+	\end{cvsection}
+	
+	\begin{cvsection}{Software Projects}
+		\input{projects/katalog}
+		\input{projects/ripcom}
+		\input{projects/beats}
+	\end{cvsection}
 
-
-
-    \begin{rSection}{SKILLS}
-        \input{Skills/skills.tex}
-    \end{rSection}
-
-
-    \begin{rSection}{Work Experience}
-        \input{Work/avalon.tex}
-    \end{rSection}
-
-
-    \begin{rSection}{Projects}
-        \input{Projects/projects.tex}
-    \end{rSection}
+	
+	\begin{cvsection}{Languages and Technologies}
+		\input{skills/skills}
+	\end{cvsection}
+	
 \end{document}

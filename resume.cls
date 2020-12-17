@@ -1,131 +1,224 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Medium Length Professional CV - RESUME CLASS FILE
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% This class file defines the structure and design of the template. 
-%
-% Original header:
-% Copyright (C) 2010 by Trey Hunner
-%
-% Copying and distribution of this file, with or without modification,
-% are permitted in any medium without royalty provided the copyright
-% notice and this notice are preserved. This file is offered as-is,
-% without any warranty.
-%
-% Created by Trey Hunner and modified by www.LaTeXTemplates.com
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The MIT License (MIT)
+%%
+%% Copyright (c) 2015 Daniil Belyakov
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a copy
+%% of this software and associated documentation files (the "Software"), to deal
+%% in the Software without restriction, including without limitation the rights
+%% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%% copies of the Software, and to permit persons to whom the Software is
+%% furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included in all
+%% copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+%% SOFTWARE.
+\ProvidesClass{resume}[2017/06/18 v1.2.0 McDowell CV class]
 
-\ProvidesClass{resume}[2010/07/10 v0.9 Resume class]
+% Set up the fonts according to options
+\def\mainfontsize{11pt}
+\def\mainfontface{Times New Roman}
 
-\LoadClass[10pt,letterpaper]{article} % Font size and paper type
-
-\usepackage[parfill]{parskip} % Remove paragraph indentation
-\usepackage{array} % Required for boldface (\bf and \bfseries) tabular columns
-\usepackage{ifthen} % Required for ifthenelse statements
-
-\pagestyle{empty} % Suppress page numbers
-
-%----------------------------------------------------------------------------------------
-%	HEADINGS COMMANDS: Commands for printing name and address
-%----------------------------------------------------------------------------------------
-
-\def \name#1{\def\@name{#1}} % Defines the \name command to set name
-\def \@name {} % Sets \@name to empty by default
-
-\def \addressSep {$\vert$} % Set default address separator to a vertical line
-
-% One, two or three address lines can be specified 
-\let \@addressone \relax
-\let \@addresstwo \relax
-\let \@addressthree \relax
-
-% \address command can be used to set the first, second, and third address (last 2 optional)
-\def \address #1{
-  \@ifundefined{@addresstwo}{
-    \def \@addresstwo {#1}
-  }{
-  \@ifundefined{@addressthree}{
-  \def \@addressthree {#1}
-  }{
-     \def \@addressone {#1}
-  }}
+\DeclareOption{calibri}{%
+  \def\mainfontface{calibri.ttf}
 }
 
-% \printaddress is used to style an address line (given as input)
-\def \printaddress #1{
-  \begingroup
-    \def \\ {\addressSep\ }
-    \centerline{#1}
-  \endgroup
-  \par
-  \addressskip
+\DeclareOption{arial}{%
+  \def\mainfontface{Arial}
 }
 
-% \printname is used to print the name as a page header
-\def \printname {
-  \begingroup
-    \hfil{\MakeUppercase{\namesize\bf \@name}}\hfil
-    \nameskip\break
-  \endgroup
+\ProcessOptions\relax
+
+% Set font size and paper type
+\LoadClass[letterpaper,\mainfontsize]{article}
+
+% Set document margins
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.5in]{geometry} 
+
+% Set font face
+\usepackage{fontspec}
+\setmainfont[SmallCapsFeatures={Renderer=Basic},
+Ligatures={TeX, NoCommon, NoDiscretionary}, Path=fonts/,
+    BoldItalicFont=calibribi.ttf,
+    BoldFont      =calibrib.ttf,
+    ItalicFont    =calibrii.ttf]{\mainfontface}
+
+% Remove paragraph indentation
+\usepackage[parfill]{parskip} 
+
+% Required for boldface (\bf and \bfseries) tabular columns
+\usepackage{array} 
+
+% Required for ifthenelse statements
+\usepackage{etoolbox} 
+
+% Suppress page numbers
+\pagestyle{empty} 
+
+% Flexible tables
+\usepackage{tabu}
+
+% For custom margins
+\usepackage{changepage}
+
+% To customize lists
+\usepackage{enumitem}
+% Remove left margin from lists, suppress vertical item separation and set top 
+% separation to a negative value to suppress a single parskip before lists
+\setlist{leftmargin=*, noitemsep, topsep=-1\parskip}
+
+% For adjusting spacing based on the platform used
+\usepackage{ifthen}
+\usepackage{ifplatform}
+
+% For spcaed small caps
+\usepackage{microtype}
+
+\DeclareMicrotypeSet*{smallcapsi} { 
+	encoding = {OT1,T1,T2A,LY1,OT4,QX,T5,TS1,EU1,EU2},
+	shape = {sc*,si,scit}
 }
 
-%----------------------------------------------------------------------------------------
-%	PRINT THE HEADING LINES
-%----------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%                                    Constants                                  -
+%--------------------------------------------------------------------------------
 
-\let\ori@document=\document
-\renewcommand{\document}{
-  \ori@document  % Begin document
-  \printname % Print the name specified with \name
-  \@ifundefined{@addressone}{}{ % Print the first address if specified
-    \printaddress{\@addressone}}
-  \@ifundefined{@addresstwo}{}{ % Print the second address if specified
-    \printaddress{\@addresstwo}}
-     \@ifundefined{@addressthree}{}{ % Print the third address if specified
-    \printaddress{\@addressthree}}
-}
-
-%----------------------------------------------------------------------------------------
-%	SECTION FORMATTING
-%----------------------------------------------------------------------------------------
-
-% Defines the rSection environment for the large sections within the CV
-\newenvironment{rSection}[1]{ % 1 input argument - section name
-  \sectionskip
-  \MakeUppercase{\bf #1} % Section title
-  \sectionlineskip
-  \hrule % Horizontal line
-  \begin{list}{}{ % List for each individual item in the section
-    \setlength{\leftmargin}{1.5em} % Margin within the section
-  }
-  \item[]
+\ifthenelse{\equal{\platformname}{\notwindowsname}}{
+	\def\namespaceskip{0.575em}
+	\def\afterheaderspace{1.1pt}
+	\def\beforesectionheaderspace{5pt}
+	\def\sectionheadermargin{6pt}
+	\def\beforesectionheaderhrulespace{2.85pt}
+	\def\sectionheaderhrlueheight{0.518pt}
+	\def\aftersectionheaderspace{-5.8pt}
+	\def\aftersinglelinesubsectionheaderspace{-20.25pt}
+	\def\afterdoublelinesubsectionheaderspace{-11.75pt}
+	\def\aftermultilinesubsectionheaderspace{-7.75pt}
+	\def\afteremptysubsectionheaderspace{1.25pt}
+	\def\subsectionmargin{9pt}
+	\def\aftersubsectionspace{2.1pt}
 }{
-  \end{list}
+	\def\namespaceskip{0.4em}
+	\def\afterheaderspace{3pt}
+	\def\beforesectionheaderspace{-1pt}
+	\def\sectionheadermargin{6pt}
+	\def\beforesectionheaderhrulespace{3pt}
+	\def\sectionheaderhrlueheight{0.5pt}
+	\def\aftersectionheaderspace{-3pt}
+	\def\aftersinglelinesubsectionheaderspace{-18.5pt}
+	\def\afterdoublelinesubsectionheaderspace{-10pt}
+	\def\aftermultilinesubsectionheaderspace{-6pt}
+	\def\afteremptysubsectionheaderspace{3pt}
+	\def\subsectionmargin{9pt}
+	\def\aftersubsectionspace{1pt}
 }
 
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE FORMATTING
-%----------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%                            Header Setup and Printing                          -
+%--------------------------------------------------------------------------------
 
-\newenvironment{rSubsection}[4]{ % 4 input arguments - company name, year(s) employed, job title and location
- {\bf #1} \hfill {#2} % Bold company name and date on the right
- \ifthenelse{\equal{#3}{}}{}{ % If the third argument is not specified, don't print the job title and location line
-  \\
-  {\em #3} \hfill {\em #4} % Italic job title and location
-  }\smallskip
-  \begin{list}{$\cdot$}{\leftmargin=0em} % \cdot used for bullets, no indentation
-   \itemsep -0.5em \vspace{-1em} % Compress items in list together for aesthetics
-  }{
-  \end{list}
-  \vspace{0.5em} % Some space after the list of bullet points
+% Address
+\makeatletter
+
+\newcommand\address[1]{\def\@address{#1}}
+\address{}
+
+\newcommand\printaddress{
+	\small{\@address}
 }
 
-% The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
-\def\namesize{\Large} % Size of the name at the top of the document
-\def\addressskip{\smallskip} % The space between the two address (or phone/email) lines
-\def\sectionlineskip{\medskip} % The space above the horizontal line for each section 
-\def\nameskip{\medskip} % The space after your name at the top
-\def\sectionskip{\smallskip} % The space after the heading section
+\makeatother
+
+% Name
+\makeatletter
+
+\newcommand\name[1]{\def\@name{#1}}
+\name{}
+
+\newcommand\printname{
+	\textbf{\LARGE\textsc{\@name}}
+}
+
+\makeatother
+
+% Contacts
+\makeatletter
+
+\newcommand\contacts[1]{\def\@contacts{#1}}
+\contacts{}
+
+\newcommand\printcontacts{
+	\small{\@contacts}
+}
+
+\makeatother
+
+\makeatletter
+\newcommand\makeheader{
+	\begin{center}
+		\begin{tabu} to 1\textwidth { X[l,m] X[2,c,m] X[r,m] }
+			\printaddress & \printname & \printcontacts \\
+		\end{tabu}	
+	\end{center}
+	\vspace*{\afterheaderspace}
+}
+\makeatother
+
+%--------------------------------------------------------------------------------
+%                            Sections and Subsections                           -
+%--------------------------------------------------------------------------------
+
+% Print a section header
+\makeatletter
+\newenvironment{cvsection}[1]{
+	\vspace*{\beforesectionheaderspace}
+	% Set text margins to equal \tabcolsep (6pt by default)
+	\begin{adjustwidth}{\sectionheadermargin}{\sectionheadermargin}
+		\textsc{\textbf{#1}}
+	\end{adjustwidth}
+	\vspace*{\beforesectionheaderhrulespace}
+	\hrule height \sectionheaderhrlueheight
+	\vspace*{\aftersectionheaderspace}
+}{}
+\makeatother
+
+% Print a subsection
+\makeatletter
+% Define toggles checking if titles were defined
+\newtoggle{lefttitledefined}
+\newtoggle{centertitledefined}
+\newtoggle{righttitledefined}
+
+\newenvironment{cvsubsection}[4][1]{
+	\notblank{#2}{\toggletrue{lefttitledefined}}{}
+	\notblank{#3}{\toggletrue{centertitledefined}}{}
+	\notblank{#4}{\toggletrue{righttitledefined}}{}
+	\ifboolexpr{togl {lefttitledefined} or togl {centertitledefined} or togl {righttitledefined}}{
+		\begin{tabu} to 1\textwidth { X[l,p] X[c,p] X[r,p] }
+			\textbf{#2} & \textbf{#3} & \textbf{#4} \\
+		\end{tabu}
+		% Add space according to the specidied number of lines
+		\ifnumcomp{#1}{=}{1}{\vspace*{\aftersinglelinesubsectionheaderspace}}{
+			\ifnumcomp{#1}{=}{2}{\vspace*{\afterdoublelinesubsectionheaderspace}}{
+				\vspace*{\aftermultilinesubsectionheaderspace}
+			}
+		}
+	}{
+		\vspace*{\afteremptysubsectionheaderspace}
+	}
+	\togglefalse{lefttitledefined}
+	\togglefalse{centertitledefined}
+	\togglefalse{righttitledefined}
+	\begin{adjustwidth}{\subsectionmargin}{\subsectionmargin}
+}
+{
+	\end{adjustwidth}
+	\vspace*{\aftersubsectionspace}
+}
+\makeatother
