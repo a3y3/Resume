@@ -20,7 +20,11 @@
 %% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 %% SOFTWARE.
 \ProvidesClass{resume}[2017/06/18 v1.2.0 McDowell CV class]
-
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+}
 % Set up the fonts according to options
 \def\mainfontsize{11pt}
 \def\mainfontface{Times New Roman}
