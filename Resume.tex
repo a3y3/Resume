@@ -24,11 +24,6 @@
 \documentclass[calibri]{resume}
 % For mathematical symbols
 \usepackage{amsmath}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    urlcolor=blue
-}
 
 \name{Soham Dongargaonkar}
 \address{220 John St, Apt 8106 \linebreak Rochester NY 14623 \linebreak \href{https://a3y3.dev}{https://a3y3.dev}}
@@ -38,7 +33,6 @@
 
 	% Print the header
 	\makeheader
-	
 	
 	\begin{cvsection}{Education}
 		\input{education/rit}
@@ -53,9 +47,9 @@
 	\end{cvsection}
 	
 	\begin{cvsection}{Software Projects}
+	    \input{projects/crust}
 		\input{projects/katalog}
 		\input{projects/ripcom}
-		\input{projects/beats}
 	\end{cvsection}
 
 	
