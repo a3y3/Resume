@@ -24,6 +24,7 @@
 \hypersetup{
     colorlinks=true,
     urlcolor=blue,
+    pdfborder={0 0 0},
 }
 % Set up the fonts according to options
 \def\mainfontsize{11pt}
@@ -43,7 +44,7 @@
 \LoadClass[letterpaper,\mainfontsize]{article}
 
 % Set document margins
-\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.5in]{geometry} 
+\usepackage[left=0.75in,top=0.5in,right=0.75in,bottom=0.5in]{geometry} 
 
 % Set font face
 \usepackage{fontspec}
@@ -67,6 +68,9 @@ Ligatures={TeX, NoCommon, NoDiscretionary}, Path=fonts/,
 
 % Flexible tables
 \usepackage{tabu}
+\usepackage{tabularray}
+
+\usepackage{graphicx}
 
 % For custom margins
 \usepackage{changepage}
@@ -105,8 +109,8 @@ Ligatures={TeX, NoCommon, NoDiscretionary}, Path=fonts/,
 	\def\afterdoublelinesubsectionheaderspace{-11.75pt}
 	\def\aftermultilinesubsectionheaderspace{-7.75pt}
 	\def\afteremptysubsectionheaderspace{1.25pt}
-	\def\subsectionmargin{9pt}
-	\def\aftersubsectionspace{2.1pt}
+	\def\subsectionmargin{-5pt}
+	\def\aftersubsectionspace{0pt}
 }{
 	\def\namespaceskip{0.4em}
 	\def\afterheaderspace{3pt}
@@ -162,12 +166,11 @@ Ligatures={TeX, NoCommon, NoDiscretionary}, Path=fonts/,
 }
 
 \makeatother
-
 \makeatletter
 \newcommand\makeheader{
 	\begin{center}
 		\begin{tabu} to 1\textwidth { X[l,m] X[2,c,m] X[r,m] }
-			\printaddress & \printname & \printcontacts \\
+			\printcontacts & \printname & \printaddress \\
 		\end{tabu}	
 	\end{center}
 	\vspace*{\afterheaderspace}
@@ -204,18 +207,12 @@ Ligatures={TeX, NoCommon, NoDiscretionary}, Path=fonts/,
 	\notblank{#3}{\toggletrue{centertitledefined}}{}
 	\notblank{#4}{\toggletrue{righttitledefined}}{}
 	\ifboolexpr{togl {lefttitledefined} or togl {centertitledefined} or togl {righttitledefined}}{
-		\begin{tabu} to 1\textwidth { X[l,p] X[c,p] X[r,p] }
-			\textbf{#2} & \textbf{#3} & \textbf{#4} \\
-		\end{tabu}
-		% Add space according to the specidied number of lines
-		\ifnumcomp{#1}{=}{1}{\vspace*{\aftersinglelinesubsectionheaderspace}}{
-			\ifnumcomp{#1}{=}{2}{\vspace*{\afterdoublelinesubsectionheaderspace}}{
-				\vspace*{\aftermultilinesubsectionheaderspace}
-			}
-		}
-	}{
-		\vspace*{\afteremptysubsectionheaderspace}
-	}
+	        \vspace{-0.3em}
+            \begin{tblr}{X[1.2,l] c X[1,r]}
+                 \textbf{#2} & \textbf{#3} & \textbf{#4} \\
+            \end{tblr}
+            \vspace{-1.8em}
+	}{}
 	\togglefalse{lefttitledefined}
 	\togglefalse{centertitledefined}
 	\togglefalse{righttitledefined}
